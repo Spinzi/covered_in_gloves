@@ -281,3 +281,108 @@
     padding-left: 12px;
     font-size: 0.85rem;
 }
+/* Calendar day selector */
+
+.calendar_wrapper {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.calendar_header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 4px 2px;
+    gap: 4px;
+}
+
+.calendar_header p {
+    margin: 0;
+    font-size: 0.8rem;
+    letter-spacing: 0.05em;
+    color: var(--text-primary);
+}
+
+.calendar_nav {
+    display: flex;
+    align-items: center;
+    gap: 0px;
+}
+
+.btn--calendar {
+    background: transparent;
+    color: var(--text-muted);
+    border: 1px solid transparent;
+    padding: 3px 7px;
+    cursor: pointer;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    line-height: 1;
+    transition: all 0.2s ease;
+}
+
+.btn--calendar:hover {
+    background: var(--anchor-glow);
+    color: var(--text-primary);
+    border-color: var(--anchor-red-dim);
+    box-shadow: var(--glow-red-soft);
+}
+
+.btn--calendar:active {
+    color: var(--anchor-red-text);
+    border-color: var(--anchor-red);
+    box-shadow: var(--glow-red);
+}
+
+.calendar_grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 2px;
+    padding: 2px;
+}
+
+.calendar_weekday {
+    text-align: center;
+    font-size: 0.6rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text-muted);
+    padding: 2px 0;
+}
+
+.calendar_cell {
+    aspect-ratio: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 3px;
+    font-size: 0.7rem;
+    border: 1px solid transparent;
+    min-height: 0;
+}
+
+.calendar_cell--empty {
+    visibility: hidden;
+}
+
+.calendar_cell--muted {
+    color: var(--text-muted);
+    opacity: 0.35;
+}
+
+.calendar_cell--active {
+    background: var(--bg-surface);
+    border-color: var(--border-color);
+    color: var(--text-primary);
+}
+
+.calendar_cell--active:hover {
+    background: var(--bg-canvas);
+    border-color: var(--anchor-red-dim);
+    box-shadow: var(--glow-red-soft);
+}
+
+.calendar_cell--active:active {
+    border-color: var(--anchor-red);
+    box-shadow: var(--glow-red);
+}
