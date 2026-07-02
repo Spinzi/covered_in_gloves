@@ -343,7 +343,7 @@ class Routes:
             "action": "day:get_indexes",
 
             "data": {
-                self.query.get_day_indexes()
+                "indexes": self.query.get_day_indexes()
             },
             "meta": get_meta()
 

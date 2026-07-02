@@ -1,4 +1,4 @@
-import { getDay, getQuestions, getSettings, sendDay } from "../core/api.js";
+import { getDay, getQuestions, getSettings, sendDay, getDayIndexes } from "../core/api.js";
 import { default_card } from "../components/card/index.js";
 import { checkbox_input, long_text_input, initLongInputs } from "../components/input/index.js";
 import { state } from "../core/state.js";
@@ -8,6 +8,36 @@ let maxWaitTimer = null;
 let secondsLeft = 3;
 let countdownInterval = null;
 const MAX_WAIT_MS = 20000; // force-save every 20s of continuous typing
+
+export async function load_add_days(){
+    console.log("Attempting to load all days...");
+
+    const resp = await getDayIndexes();
+
+    if(resp["status"] === "ok"){
+        console.log("Server responded with status ok.");
+        console.log("Proceeding to load all days in state...");
+
+        for(const key in resp["data"]["indexes"]){
+            const dt = resp["data"]["indexes"][key];
+
+            const day = await getDay(dt);
+            if(day["status"] === "ok"){
+                console.log(`Succesfully got ${dt}...`);
+                console.log(day);
+                const day_data = day["data"]["day"];
+                state.days[dt] = day_data;
+            }
+        }
+
+        console.log("Loaded all days succesfully.");
+        console.log(state.days);
+    }else{
+        console.warn("Could not load days. Resp status not ok.");
+        console.warn(resp);
+    }
+
+}
 
 export async function renderQuestions(){
 

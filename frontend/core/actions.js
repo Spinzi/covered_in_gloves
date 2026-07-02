@@ -13,6 +13,14 @@ export async function initActions(){
 
         let action = element.dataset.action;
 
+        if(action.startsWith("goDay-")){
+            const dest = action.slice(6);
+            goto("day", {
+                "date": dest
+            });
+            return;
+        }
+
         if(action.startsWith("go-")){
             const dest = action.slice(3);
             goto(dest);
@@ -48,7 +56,14 @@ export async function initActions(){
                         server_response_paragraph.classList = "";
                         saveToken(resp.data.token);
                         state.token = resp.data.token;
-                        goto("home");
+
+                        if(state.route.extras.returnTo){
+                            window.location.search = state.route.extras.returnTo;
+                        }
+                        else{
+                            goto("home");
+                        }
+
                     }
 
                 }

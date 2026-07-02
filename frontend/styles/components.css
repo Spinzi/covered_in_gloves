@@ -274,3 +274,10 @@
     background: var(--bg-surface);
     color: var(--text-primary);
 }
+
+/* Text indent */
+
+.text--indent {
+    padding-left: 12px;
+    font-size: 0.85rem;
+}

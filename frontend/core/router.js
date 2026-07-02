@@ -10,8 +10,13 @@ export function parseRoute(){
         extras: {
             questions: params.has("questions"),
             addQuestion: params.has("addQuestion"),
+            returnTo: params.get("returnTo"),
+
         }
     }
+
+    console.log(`Parsed route `);
+    console.log(state.route);
 }
 
 export function goto(page, extra = {}){

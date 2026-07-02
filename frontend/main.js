@@ -4,6 +4,7 @@ import { renderHome } from "./pages/home/index.js";
 import { renderDashboard } from "./pages/dashboard/index.js";
 import { renderToday } from "./pages/today/index.js";
 import { renderHistory } from "./pages/history/index.js";
+import { renderDay } from "./pages/day/index.js";
 
 import { is_authenticated } from "./utils/validation.js";
 
@@ -19,6 +20,7 @@ import { initAPI } from "./core/api.js";
 import { waitForSocket } from "./core/socket.js";
 
 import { parseRoute, goto } from "./core/router.js";
+import { load_add_days } from "./utils/helpers.js";
 
 // the init function is called when the DOM is fully loaded
 // we need to auth the user first, so we will call the check auth
@@ -41,9 +43,10 @@ async function init() {
 
   console.log(state);
 
-
   if(!(await is_authenticated()) && state.route.page !== "auth"){
-    goto("auth");
+    goto("auth", {
+      returnTo: window.location.search || null
+    });
   }
 
   renderTopbar();
@@ -54,23 +57,23 @@ async function init() {
   switch(state.route.page){
     
     case "auth":
-      console.log("Entering auth rendering...");
       renderAuth();
       break;
     case "home":
-      console.log("Entering home rendering...");
+      await load_add_days();
       renderHome();
       break;
     case "dashboard":
-      console.log("Entering dashboard rendering...");
       renderDashboard();
       break;
     case "today":
-      console.log("Entering today rendering...");
       renderToday();
       break;
     case "history":
       renderHistory();
+      break;
+    case "day":
+      renderDay();
       break;
     default:
       break;
@@ -81,6 +84,6 @@ async function init() {
 
 }
 
-document.addEventListener("DOMContentLoaded", (event) => {
-  init();
+document.addEventListener("DOMContentLoaded", async (event) => {
+  await init();
 });
