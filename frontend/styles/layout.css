@@ -1,0 +1,57 @@
+@import "./base.css";
+@import "./components.css";
+
+html, body {
+    margin: 0;
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: var(--bg-canvas);
+    color: var(--text-primary);
+    font-family: 'Courier New', Courier, monospace, system-ui;
+    letter-spacing: 0.05em;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+#app {
+    display: flex;
+    height: calc(100vh - 60px);
+}
+
+#topbar {
+    height: 60px;
+}
+
+#sidebar {
+    flex: 0 0 240px;
+    display: flex;
+    flex-direction: column;
+}
+
+#main {
+    flex: 1;
+    padding: 0 1rem;
+}
+
+/* Questions dashboard layout */
+
+.question_card{
+    display: flex;
+    flex-direction: row;
+}
+
+.question_card_data{
+    flex: 3;
+}
+
+.question_card_buttons{
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}

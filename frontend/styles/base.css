@@ -1,0 +1,57 @@
+/* ==========================================================================
+   80s Analogue / Stranger Things Inspired Dashboard Theme
+   ========================================================================== */
+
+:root {
+    /* Base Backgrounds */
+    --bg-canvas: #181313;
+    --bg-sidebar: #110D0D;
+    --bg-surface: #221B1B;
+    --border-color: #261F1F;
+
+    /* Typography */
+    --text-primary: #E6D5BC;
+    --text-muted: #8C7C6D;
+
+    /* Branding & Interactive Anchors */
+    --anchor-red: #A81C1C;
+    --anchor-glow: rgba(168, 28, 28, 0.4);
+    --anchor-red-dim: #6B1010;          /* darker red for subtle borders */
+    --anchor-red-text: #CC2222;         /* slightly brighter for text on dark bg */
+    --glow-red: 0 0 8px rgba(168, 28, 28, 0.6), 0 0 20px rgba(168, 28, 28, 0.2);
+    --glow-red-soft: 0 0 6px rgba(168, 28, 28, 0.3);
+
+    /* Data Visualization / Graph Palette */
+    --chart-amber: #C68B31;
+    --chart-teal: #2E6F6B;
+    --chart-coral: #B36353;
+    --chart-grid: #2D2424;
+
+    /* Feedback colors */
+    --success-green: #3F9E5E;
+    --success-glow: rgba(63, 158, 94, 0.4);
+}
+/* Base Reset & Typography */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+.ok_txt {
+    color: var(--success-green);
+}
+
+.err_txt{
+    color: var(--anchor-red);
+}
+
+.q_id {
+    color: var(--chart-amber);
+}
+
+.q_name {
+    color: var(--chart-teal);
+}
+
+.q_text {
+    color: var(--chart-coral);
+}

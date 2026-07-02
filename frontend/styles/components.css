@@ -1,0 +1,276 @@
+@import "./base.css";
+
+
+
+#topbar {
+    background: var(--bg-surface);
+    border-bottom: 3px solid var(--anchor-red-dim);
+
+    display: flex;
+    flex-direction: row;
+
+    align-items: center;
+    justify-content: flex-start;
+    padding: 0 20px;
+}
+
+.topbar{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+#sidebar {
+    background: var(--bg-sidebar);
+}
+
+#main {
+    background: var(--bg-canvas);
+    overflow-y: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+#main::-webkit-scrollbar{
+    display: none;
+}
+
+.btn {
+    background: var(--anchor-red);
+    color: var(--text-primary);
+    border: 1px solid var(--border-color);
+    padding: 10px 20px;
+    cursor: pointer;
+    margin: 5px;
+    border-radius: 4px;
+    transition: background 0.3s ease;
+}
+
+.btn:hover {
+    background: var(--anchor-glow);
+}
+
+.horizontal_spacer {
+    margin: 0 auto;
+}
+
+/* input */
+
+.input {
+    background: var(--bg-surface);
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    color: var(--text-primary);
+    font-size: 0.9rem;
+    padding: 8px 12px;
+    outline: none;
+    transition: border-color 0.2s ease;
+}
+
+.input::placeholder {
+    color: var(--text-muted);
+}
+
+.input:focus {
+    border-color: var(--anchor-red);
+}
+
+/* Sizes */
+
+.input--short {
+    min-width: 160px;
+    width: 100%;
+    
+}
+
+.input--long {
+    width: 100%;
+    resize: none;
+    overflow: hidden;
+    min-height: 38px;
+    max-height: calc(1.4em * 5 + 16px); /* 5 lines then scroll */
+    overflow-y: auto;
+    line-height: 1.4;
+}
+
+/* Checkbox */
+
+.input--checkbox {
+    appearance: none;
+    width: 18px;
+    height: 18px;
+    padding: 0;
+    cursor: pointer;
+    flex-shrink: 0;
+    position: relative;
+    border: 2px solid var(--text-muted);
+}
+
+.input--checkbox:hover {
+    border-color: var(--text-primary);
+}
+
+.input--checkbox:checked {
+    background: var(--anchor-red);
+    border-color: var(--anchor-red);
+}
+
+.input--checkbox:checked::after {
+    content: "";
+    position: absolute;
+    left: 5px;
+    top: 2px;
+    width: 5px;
+    height: 9px;
+    border: 2px solid var(--text-primary);
+    border-top: none;
+    border-left: none;
+    transform: rotate(45deg);
+}
+
+/* Sidebar layout */
+
+#sidebar {
+    background: var(--bg-sidebar);
+    display: flex;
+    flex-direction: column;
+    padding: 8px;
+    gap: 2px;
+    border-right: 1px solid var(--anchor-red-dim);
+}
+
+/* Sidebar button — same shape as .btn but toned down */
+
+.btn--sidebar {
+    width: 100%;
+    background: transparent;
+    color: var(--text-muted);
+    border: 1px solid transparent;
+    border-left: 2px solid transparent;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 4px;
+    text-align: left;
+    font-size: 0.9rem;
+    letter-spacing: 0.02em;
+    transition: all 0.2s ease;
+}
+
+.btn--sidebar:hover {
+    background: var(--anchor-glow);
+    color: var(--text-primary);
+    border-color: var(--anchor-red-dim);
+    border-left-color: var(--anchor-red);
+    box-shadow: var(--glow-red-soft);
+    text-shadow: 0 0 8px rgba(168, 28, 28, 0.5);
+}
+
+.btn--sidebar:active {
+    background: var(--anchor-glow);
+    color: var(--anchor-red-text);
+    border-left-color: var(--anchor-red);
+    box-shadow: var(--glow-red);
+    text-shadow: 0 0 12px rgba(168, 28, 28, 0.8);
+}
+
+/* Sidebar card — header label */
+
+.card--sidebar {
+    background: transparent;
+    border: none;
+    border-left: 2px solid var(--anchor-red-dim);
+    padding: 10px 20px 4px 20px;
+    margin: 8px 0 2px 0;
+}
+
+.card--sidebar h3 {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--anchor-red-text);
+    text-shadow: var(--glow-red-soft);
+    margin: 0;
+}
+
+/* Sidebar divider */
+
+.divider--sidebar {
+    border: none;
+    border-top: 1px solid var(--anchor-red-dim);
+    margin: 6px 4px;
+    box-shadow: 0 0 6px rgba(168, 28, 28, 0.2);
+}
+
+/* Sidebar message */
+
+.sidebar--message {
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    padding: 10px 20px;
+    line-height: 1.5;
+    border-left: 2px solid var(--anchor-red-dim);
+    margin: 8px 0;
+}
+
+/* Questions renderer */
+
+.card {
+    padding: 16px 20px;
+    background: var(--bg-surface);
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    color: var(--text-primary);
+    margin-bottom: 12px;
+}
+
+.card_id {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+}
+
+.question_header{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+/* Settings cards */
+
+.card--clickable {
+    cursor: pointer;
+    transition: background 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card--clickable:hover {
+    background: var(--bg-canvas);
+    border-color: var(--anchor-red-dim);
+    box-shadow: var(--glow-red-soft);
+}
+
+.card--clickable:active {
+    border-color: var(--anchor-red);
+    box-shadow: var(--glow-red);
+}
+
+/* Select */
+
+.input--select {
+    width: 160px;
+    cursor: pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%238C7C6D' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    padding-right: 30px;
+}
+
+.input--select:focus {
+    border-color: var(--anchor-red);
+}
+
+.input--select option {
+    background: var(--bg-surface);
+    color: var(--text-primary);
+}
