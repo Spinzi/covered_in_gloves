@@ -3,6 +3,7 @@ import { default_card } from "../../components/card/index.js";
 import { basic_button } from "../../components/button/index.js";
 import { select_input, long_text_input, short_text_input, initLongInputs } from "../../components/input/index.js";
 import { state } from "../../core/state.js";
+import { getGreeting } from "../../utils/helpers.js";
 
 function render_server_response_card(){
     var container = document.getElementById("content");
@@ -175,6 +176,8 @@ export async function renderDashboard(){
     var container = document.getElementById("content");
 
     container.innerHTML = `<h1>Administrator Dashboard</h1>`;
+    container.innerHTML += `<h3>${await getGreeting("dashboard", "h")}</h3>`;
+    container.innerHTML += `<p>${await getGreeting("dashboard", "p")}</p>`;
 
     //making the default settings page over here
     

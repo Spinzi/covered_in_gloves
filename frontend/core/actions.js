@@ -1,8 +1,50 @@
-import { login, addQuestion, removeQuestion } from "./api.js";
+import { login, addQuestion, removeQuestion, logout } from "./api.js";
 import { state } from "./state.js";
 import { saveToken } from "./storage.js";
 import { goto } from "./router.js";
 import { save } from "../utils/helpers.js";
+
+
+export async function action_login(){
+    console.log("Button pressed with action login.");
+
+    let password = document.getElementById("password").value;
+
+    const resp = await login(password);
+    console.log("Raw resp:", resp);      // Is this undefined? Or never logged?
+    console.log("Type:", typeof resp);
+
+    const server_response_paragraph = document.getElementById("server_response");
+
+    if(typeof resp === "object"){
+
+        if(resp.status === "error"){
+            server_response_paragraph.innerText = resp.error.code + ":" + resp.error.message;
+            server_response_paragraph.classList = "err_txt";
+        }
+        else if(resp.status === "ok"){
+            server_response_paragraph.innerText = "Welcome back, Administrator.";
+            server_response_paragraph.classList = "";
+            saveToken(resp.data.token);
+            state.token = resp.data.token;
+
+            if(state.route.extras.returnTo){
+                window.location.search = state.route.extras.returnTo;
+            }
+            else{
+                goto("home");
+            }
+
+        }
+
+    }
+}
+
+async function action_logout(){
+    await logout();
+
+    goto("home");
+}
 
 export async function initActions(){
 
@@ -35,39 +77,7 @@ export async function initActions(){
 
         switch(action){
             case "login":
-                console.log("Button pressed with action login.");
-
-                let password = document.getElementById("password").value;
-
-                const resp = await login(password);
-                console.log("Raw resp:", resp);      // Is this undefined? Or never logged?
-                console.log("Type:", typeof resp);
-
-                const server_response_paragraph = document.getElementById("server_response");
-
-                if(typeof resp === "object"){
-
-                    if(resp.status === "error"){
-                        server_response_paragraph.innerText = resp.error.code + ":" + resp.error.message;
-                        server_response_paragraph.classList = "err_txt";
-                    }
-                    else if(resp.status === "ok"){
-                        server_response_paragraph.innerText = "Welcome back, Administrator.";
-                        server_response_paragraph.classList = "";
-                        saveToken(resp.data.token);
-                        state.token = resp.data.token;
-
-                        if(state.route.extras.returnTo){
-                            window.location.search = state.route.extras.returnTo;
-                        }
-                        else{
-                            goto("home");
-                        }
-
-                    }
-
-                }
-
+                action_login();
                 break;
             case "go_settings_questions":
                 goto("dashboard", {
@@ -128,6 +138,9 @@ export async function initActions(){
                 break;
             case "save":
                 save();
+                break;
+            case "logout":
+                action_logout();
                 break;
             default:
                 console.log("Unregistered data-action");

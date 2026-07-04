@@ -7,6 +7,7 @@ let saveTimer = null;
 let maxWaitTimer = null;
 let secondsLeft = 3;
 let countdownInterval = null;
+let greetings = null;
 const MAX_WAIT_MS = 20000; // force-save every 20s of continuous typing
 
 export async function load_add_days(){
@@ -233,4 +234,27 @@ export async function autosaveInit(){
         await save();
         document.getElementById("autosave").textContent = `Saved`;
     }
+}
+
+async function loadGreetings(){
+    if (!greetings) {
+        const res = await fetch("/utils/greetings.json");
+        greetings = await res.json();
+    }
+    return greetings;
+}
+
+//Greetings, for each page, Home, Dashboard, etc. Types: 'h', 'p', for heading or paragraph.
+export async function getGreeting(page, type = "h"){
+    const data = await loadGreetings();
+    const options = data[page]?.[type];
+
+    if (!options || options.length === 0) {
+        console.warn(`No greetings found for page "${page}", type "${type}"`);
+        return "";
+    }
+
+    const randomIndex = Math.floor(Math.random() * options.length);
+    return options[randomIndex];
+
 }

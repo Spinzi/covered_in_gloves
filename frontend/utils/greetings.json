@@ -1,0 +1,97 @@
+{
+    "auth": {
+        "h": [
+            "Identify yourself, Administrator",
+            "Access requires clearance, Administrator",
+            "Verification required before entry",
+            "State your credentials, Administrator",
+            "The lab recognizes only authorized personnel",
+            "Welcome back. Prove it, Administrator",
+            "Clearance check in progress, Administrator"
+        ],
+        "p": [
+            "Enter your credentials to proceed",
+            "The system needs to confirm its you",
+            "Authorization is required to access the facility",
+            "Please sign in to continue your work",
+            "Identity confirmation is step one",
+            "We don't let just anyone into the lab"
+        ]
+    },
+    "home": {
+        "h": [
+            "Hello dear Administrator!",
+            "Missed your presence, Administrator",
+            "Glad to see you back, Administrator",
+            "Signal received, Administrator",
+            "Facility online. Welcome back, Administrator",
+            "Good to have you at the console again, Administrator",
+            "Monitoring station reactivated, Administrator",
+            "The lab has been quiet without you, Administrator"
+        ],
+        "p": [
+            "Please take a few minutes of your time to answer these questions",
+            "Its been a while, can you complete these questions of today?",
+            "Ive been rooting to see you complete these questions, Administrator",
+            "A few readings are required before we proceed",
+            "Standard debrief protocol: please respond to today's inquiries",
+            "The subject's log awaits your input",
+            "Routine calibration begins with your answers",
+            "Data collection resumes when you're ready"
+        ]
+    },
+    "dashboard": {
+        "h": [
+            "Whats on the agenda, Administrator",
+            "Calibration panel, Administrator",
+            "Adjust the facility to your liking, Administrator",
+            "Configuration access granted, Administrator",
+            "System parameters await your command, Administrator",
+            "Recalibrate as needed, Administrator"
+        ],
+        "p": [
+            "Modify settings to keep the station running smoothly",
+            "Everything here can be tuned to your preference",
+            "Change what needs changing. We'll adapt",
+            "Clearance level: full. Proceed with adjustments",
+            "The console is yours to configure",
+            "Small changes here, larger effects elsewhere"
+        ]
+    },
+    "today": {
+        "h": [
+            "Today's readings, Administrator",
+            "Session log: current day, Administrator",
+            "Todays inquiry begins now, Administrator",
+            "The day's questions are ready, Administrator",
+            "Run today's diagnostic, Administrator",
+            "Current cycle, awaiting response, Administrator"
+        ],
+        "p": [
+            "Answer what you can, when you can",
+            "No rush. The lab has time",
+            "Every entry brings us closer to understanding",
+            "Todays log is short. Complete it when ready",
+            "Just the essentials for today",
+            "Focus only on what today requires"
+        ]
+    },
+    "history": {
+        "h": [
+            "Archived logs, Administrator",
+            "Past sessions on file, Administrator",
+            "The record remembers everything, Administrator",
+            "Previous entries, catalogued, Administrator",
+            "History doesn't erase itself here, Administrator",
+            "Old readings, still accessible, Administrator"
+        ],
+        "p": [
+            "Every day you've logged is stored below",
+            "Nothing is truly lost in the archive",
+            "Revisit past entries whenever you need",
+            "The past days are all recorded here",
+            "Scroll back through what's already been said",
+            "A full record of everything so far"
+        ]
+    }
+}

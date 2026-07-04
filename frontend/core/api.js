@@ -140,3 +140,14 @@ export async function getDayIndexes(){
 
     return await once("day:get_indexes");
 }
+
+export async function logout(){
+    send({
+        action: "auth:logout",
+        data: {
+            token: state.token
+        }
+    });
+
+    return await once("auth:logout");
+}

@@ -1,9 +1,10 @@
-import { renderQuestions, autosaveInit } from "../../utils/helpers.js";
+import { renderQuestions, autosaveInit, getGreeting } from "../../utils/helpers.js";
 
-export function renderHome() {
+export async function renderHome() {
   var container = document.getElementById("content");
 
-  container.innerHTML = `<h1>Hello Administrator!</h1><p>Please answer the questions of today.</p>`;
+  container.innerHTML = `<h1>${await getGreeting("home", "h")}</h>`;
+  container.innerHTML += `<p>${await getGreeting("home", "p")}</p>`;
   container.innerHTML += `<div id="question_div"></div>`;
 
   renderQuestions();
