@@ -14,9 +14,9 @@
     --text-muted: #8C7C6D;
 
     /* Branding & Interactive Anchors */
-    --anchor-red: #A81C1C;
+    --anchor-red: rgb(168, 28, 28);
     --anchor-glow: rgba(168, 28, 28, 0.4);
-    --anchor-red-dim: #6B1010;          /* darker red for subtle borders */
+    --anchor-red-dim: rgb(107, 16, 16);          /* darker red for subtle borders */
     --anchor-red-text: #CC2222;         /* slightly brighter for text on dark bg */
     --glow-red: 0 0 8px rgba(168, 28, 28, 0.6), 0 0 20px rgba(168, 28, 28, 0.2);
     --glow-red-soft: 0 0 6px rgba(168, 28, 28, 0.3);

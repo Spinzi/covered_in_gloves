@@ -1,4 +1,4 @@
-import { renderQuestions, autosaveInit } from "../../utils/helpers.js";
+import { renderQuestions, autosaveInit, getGreeting } from "../../utils/helpers.js";
 
 export async function renderToday() {
   var container = document.getElementById("content");

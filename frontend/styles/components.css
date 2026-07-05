@@ -386,3 +386,19 @@
     border-color: var(--anchor-red);
     box-shadow: var(--glow-red);
 }
+
+/* Canvas for stats */
+
+#charts_div{
+    max-width: 65vw;
+    align-items: center;
+    margin: auto;
+    background-color: var(--bg-sidebar);
+    border-radius: 1rem;
+    padding: 12px;
+    margin-bottom: 12px;
+}
+
+.stats_canvas{
+    height: 70vh;
+}
